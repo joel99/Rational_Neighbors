@@ -35,7 +35,7 @@ public class Rational {
 	
 	//float approximation of rational number
     public float floatValue(){
-		return (float)(num)/(demon); 		//Casting has precedence to division.
+		return (float)(num)/(den); 		//Casting has precedence to division.
     }
 	
 	//multiplication
@@ -46,7 +46,7 @@ public class Rational {
 	
 	//division
 	public void divide(Rational n){
-		if (n.num == 0){
+		if (n.dem == 0){
 			System.out.println("MathError: Division by 0");
 			return;
 		}
