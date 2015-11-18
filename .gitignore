@@ -1,12 +1,16 @@
-*.class
+public class Rational {
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+private int numer;
+private int demon;
 
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+public Rational(){
+numer = 0;
+demon = 1;
+}
+public Rational(int n, int d){
+if (d == 0){
+numer = 0;
+demon = 1;
+System.out.print ("you can't divide by 0 silly!");
+}
+}
