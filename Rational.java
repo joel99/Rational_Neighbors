@@ -3,6 +3,8 @@
 //HW32 -- Do You Even Add, Bro?
 //2015 - 11 - 18
 
+
+//TO DO: Negatives for gcd and Rational class, and commenting
 public class Rational {
 
     private int num;
@@ -64,6 +66,10 @@ public class Rational {
         return a;
     }
 
+    public int gcd(){
+	return gcd(num,den);
+    }
+
     public static void reduce(Rational n){
 	int gcd = gcd(n.num, n.den);
 	n.num /= gcd;
@@ -82,6 +88,20 @@ public class Rational {
 	reduce(this);
     }
 
+    public int compareTo(Rational a){
+	Rational c = new Rational(num,den);
+	reduce(c);
+	reduce(a);
+	c.subtract(a);
+	if (c.num > 0) 
+	    return 1;
+	if (c.num == 0)
+	    return 0;
+	if (c.num < 0)
+	    return -1;
+	return -1;
+    }
+
     public static void main(String[] args){
 	Rational a = new Rational(1,2);
 	Rational b = new Rational(1,3);
@@ -92,6 +112,11 @@ public class Rational {
 	System.out.println(a);
 	a.subtract(b);
 	System.out.println(a);
+
+	Rational d = new Rational(2,4);
+	Rational e = new Rational(3,6);
+	System.out.println(d.compareTo(e));
+
     }
 
 }
