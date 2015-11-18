@@ -45,7 +45,7 @@ public class Rational {
 	
     //division
     public void divide(Rational n){
-	if (n.den == 0){
+	if (n.num == 0){
 	    System.out.println("MathError: Division by 0");
 	    
 	}
