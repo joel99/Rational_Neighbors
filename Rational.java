@@ -33,7 +33,7 @@ public class Rational {
 	    "\n" + den;
     }
 	
-	//float approximation of rational number
+    //float approximation of rational number
     public float floatValue(){
 		return (float)(num)/(den); 		//Casting has precedence to division.
     }
