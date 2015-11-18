@@ -1,40 +1,44 @@
 public class Rational {
 
-    private int numer;
-    private int demon;
+    private int num;
+    private int den;
 
     public Rational(){
-	numer = 0;
-	demon = 1;
+		num = 0;
+		den = 1;
     }
     public Rational(int n, int d){
 	if (d == 0){
-	    numer = 0;
-	    demon = 1;
-	    System.out.print ("you can't divide by 0 silly!");
+		this();
+		System.out.print ("MathError: Division by 0.");
 	}
-	else if (!(d == (int)(d)&& n == (int)(n))){
-	    numer = 0;
-	    demon = 1;
-	    System.out.print ("numerator and denominator must be integers!");}
 	else {
-	    numer = n;
-	    demon = d;
+	    num = n;
+	    den = d;
 	}
-
     }
+	
     public String toString(){
-	return "" + numer +
+		return num +
 	    "\n" + "-" +
-	    "\n" + demon;
+	    "\n" + den;
     }
+	
     public float floatValue(){
-	return (float)(numer)/(float)(demon);
+		return (float)(num)/(demon); 		//Casting has precedence to division.
     }
-    public void multiply (Rational num){
-        double n = num.numer * this.numer;
-	double d = num.demon * this.demon;
-	numer = (int) n;
-	demon = (int) d;
+	
+    public void multiply (Rational n){
+        num *= n.num;
+		den *= n.den;		//Needn't worry about division by 0, param is also rational.
     }
+	
+	public void divide(Rational n){
+		if (n.num == 0){
+			System.out.println("MathError: Division by 0");
+			return;
+		}
+		num *= n.den;
+		den *= n.num;
+	}
 }
