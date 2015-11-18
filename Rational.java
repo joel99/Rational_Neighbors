@@ -41,7 +41,7 @@ public class Rational {
 	//multiplication
     public void multiply (Rational n){
         num *= n.num;
-		den *= n.den;		//Needn't worry about division by 0, param is also rational.
+		den *= n.den;	//Needn't worry about division by 0, param is also rational.
     }
 	
 	//division
