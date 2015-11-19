@@ -119,12 +119,16 @@ public class Rational {
 	reduce(this);
     }
 
+
+    // subtract another Rational object
     public void subtract(Rational a){
 	num = num * a.den - den * a.num;
 	den *= a.den;
 	reduce(this);
     }
 
+
+    //  returns diff of two Rational objects
     public int compareTo(Rational a){
 	Rational c = new Rational(num,den);
 	reduce(c);
@@ -134,26 +138,25 @@ public class Rational {
     }
 
     public static void main(String[] args){
-	/*
-	Rational a = new Rational(1,2);
-	Rational b = new Rational(1,3);
-	Rational c = new Rational(6,9);
-	reduce(c);
-	System.out.println(c);
-	a.add(b);
-	System.out.println(a);
-	a.subtract(b);
-	System.out.println(a);
+
+	Rational z = new Rational(1,2);
+	Rational y = new Rational(1,3);
+	Rational x = new Rational(6,9);
+	reduce(x);
+	System.out.println(x);
+	z.add(y);
+	System.out.println(z);
+	z.subtract(y);
+	System.out.println(z);
 
 	Rational d = new Rational(2,4);
 	Rational e = new Rational(3,6);
 	System.out.println(d.compareTo(e));
-	*/
+	
 	Rational a = new Rational(-3,7);
 	Rational b = new Rational(2,-4);
 	System.out.println(a.compareTo(b));
 	
-
     }
 
 }
