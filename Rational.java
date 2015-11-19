@@ -79,13 +79,9 @@ public class Rational {
     // calc gcd of two ints
     public static int gcd(int a, int b){
 	// deal with negatives
-	if (a < 0) {
-	    a *= -1;
-	}
-	if (b < 0) {
-	    a *= -1;
-	}
-	
+		a = Math.abs(a);
+		b = Math.abs(b);
+		
         while (b != 0) {
             int num = b;
             b = a % b;
@@ -106,6 +102,13 @@ public class Rational {
 	int gcd = gcd(n.num, n.den);
 	n.num /= gcd;
 	n.den /= gcd;
+	if(n.den < 0){
+		n.num *= -1;
+		n.den *= -1;
+		//How in the world is it so compact? Well, if den (and num) is (are) < 0
+		//This will make n all positive. If only den is less than 0, sign flips to numerator.
+		//If both are positive, w/e.
+	}
     }
 
 
@@ -127,13 +130,7 @@ public class Rational {
 	reduce(c);
 	reduce(a);
 	c.subtract(a);
-	if (c.num > 0) 
-	    return 1;
-	if (c.num == 0)
-	    return 0;
-	if (c.num < 0)
-	    return -1;
-	return -1;
+	return c.num;
     }
 
     public static void main(String[] args){
@@ -152,9 +149,9 @@ public class Rational {
 	Rational e = new Rational(3,6);
 	System.out.println(d.compareTo(e));
 	*/
-	System.out.println(gcd(3,6));
-	System.out.println(gcd(-3,6));
-
+	Rational a = new Rational(-3,7);
+	Rational b = new Rational(2,-4);
+	System.out.println(a.compareTo(b));
 	
 
     }
