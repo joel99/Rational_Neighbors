@@ -1,7 +1,7 @@
-// Team Neighbors - Joel Ye and Jannie Li
+// Team Neighbors - Joel Ye and William Xiang
 // APCS1 pd10
-// HW33 -- Do You Even Add, Bro?
-// 2015-11-18
+// HW37 -- Rational Equality
+// 2015-11-24
 
 
 public class Rational {
@@ -136,10 +136,12 @@ public class Rational {
 	return c.num;
     }
 
-
+    //Copied Tile's structure
     public boolean equals(Object a){
+    	//Check for alias
     	boolean retval = this == a;
     	if (!retval)
+    		//Check for same class and then see if difference is 0 -> Equality
     		retval = a instanceof Rational && this.compareTo((Rational)a) == 0;
     	return retval;
     }
