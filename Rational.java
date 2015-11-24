@@ -6,8 +6,7 @@
 
 public class Rational {
 
-    private int num;
-    private int den;
+    private int num, den;
 
 
     // CONSTRUCTORS
@@ -137,25 +136,18 @@ public class Rational {
 	return c.num;
     }
 
+
+    public boolean equals(Object a){
+    	boolean retval = this == a;
+    	if (!retval)
+    		retval = a instanceof Rational && this.compareTo((Rational)a) == 0;
+    	return retval;
+    }
     public static void main(String[] args){
 
 	Rational z = new Rational(1,2);
-	Rational y = new Rational(1,3);
-	Rational x = new Rational(6,9);
-	reduce(x);
-	System.out.println(x);
-	z.add(y);
-	System.out.println(z);
-	z.subtract(y);
-	System.out.println(z);
-
-	Rational d = new Rational(2,4);
-	Rational e = new Rational(3,6);
-	System.out.println(d.compareTo(e));
-	
-	Rational a = new Rational(-3,7);
-	Rational b = new Rational(2,-4);
-	System.out.println(a.compareTo(b));
+	Rational y = new Rational(2,4);
+	System.out.println(z.equals(y));
 	
     }
 
