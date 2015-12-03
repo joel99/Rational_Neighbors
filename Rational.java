@@ -4,7 +4,7 @@
 // 2015-11-24
 
 
-public class Rational {
+public class Rational implements Comparable {
 
     private int num, den;
 
@@ -129,13 +129,29 @@ public class Rational {
 
     //  returns diff of two Rational objects
     public int compareTo(Rational a){
-	Rational c = new Rational(num,den);
-	reduce(c);
-	reduce(a);
-	c.subtract(a);
-	return c.num;
+		return num * a.den - den * a.num;
     }
-
+	// returns diff of Rational and object?
+	//merges equals and compareTo
+	public int compareTo(Object o){
+		boolean retval = this == o;
+		if (! retval){
+			retval = o instanceof Rational;
+			if (retval)
+				return this.compareTo((Rational)o);
+			else
+				retval = o instanceof Integer || o instanceof Float || o instanceof Double;
+			if (retval){
+				double a = this.floatValue() - (Double) o;
+				if (a < 0)
+					return (int)Math.floor(a);
+				else
+					return (int)Math.floor(a) + 1;
+			}
+		}
+		return 0;
+	}
+	
     //Copied Tile's structure
     public boolean equals(Object a){
     	//Check for alias
@@ -145,11 +161,11 @@ public class Rational {
     		retval = a instanceof Rational && this.compareTo((Rational)a) == 0;
     	return retval;
     }
+
     public static void main(String[] args){
 
 	Rational z = new Rational(1,2);
-	Rational y = new Rational(2,4);
-	System.out.println(z.equals(y));
+	System.out.println(z.compareTo(.4));
 	
     }
 
