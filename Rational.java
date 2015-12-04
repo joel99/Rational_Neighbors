@@ -1,7 +1,7 @@
-// Team Neighbors - Joel Ye and William Xiang
+// Team Neighbors - Joel Ye and Jason Mohabir
 // APCS1 pd10
-// HW37 -- Rational Equality
-// 2015-11-24
+// HW41 -- In America, the Driver Sits on the Left
+// 2015-12-03
 
 
 public class Rational implements Comparable {
@@ -148,6 +148,9 @@ public class Rational implements Comparable {
 				else
 					return (int)Math.floor(a) + 1;
 			}
+			else
+				System.out.println(o + " cannot be compared with " + this);
+			return 0;
 		}
 		return 0;
 	}
